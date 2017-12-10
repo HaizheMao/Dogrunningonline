@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>叛逆的陨石块</title>
+<style>
+  body {
+   display: flex;
+   height: 100vh;
+   margin: 0;
+   padding: 0;
+   justify-content: center;
+   align-items: center;
+ }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="600" height="450" style="background-image:url(img/caoyuan.jpg)"></canvas>
+<script>
+
+var  box = document.getElementById('canvas').getContext('2d');
+
+     box.fillStyle = "#87CEFA";
+     var H = 0;
+
+       setInterval(function () {
+
+         H++;
+
+         if(H>450|| H<0)
+         {
+         alert("Game Over!\n若开始新游戏，点击确定。");
+         H=0
+         return false;
+         }
+
+
+         document.onkeydown = function (e) {
+               e = e || event;
+               if (e.keyCode == 32) {
+              H = H- 430;
+               }
+           }
+
+         box.clearRect(295, 0, 600, 475);
+         box.fillRect(295, H, 28, 26);
+
+     }, 1000 / 500);
+
+ </script>
+ </body>
+ </html>
